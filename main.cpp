@@ -35,6 +35,20 @@ int getValidInt(const std::string& prompt) {
     }
 }
 
+double getValidSellPrice(double buyPrice) {
+    double sellPrice;
+    while (true) {
+        std::cout << "Введите цену перепродажи товара (должна быть больше оптовой цены): ";
+        std::cin >> sellPrice;
+        if (std::cin.fail() || sellPrice <= buyPrice) {
+            std::cout << "Ошибка: цена перепродажи не может быть меньше или равна оптовой цене.\n";
+            clearInput();
+        } else {
+            return sellPrice;
+        }
+    }
+}
+
 int main() {
     try {
         double budget = getValidDouble("Введите доступный бюджет: ");
@@ -47,12 +61,11 @@ int main() {
             Item item;
             std::cout << "\nТовар #" << i + 1 << "\n";
             std::cout << "Введите имя товара: ";
-            std::cin.ignore(); // Очистка ввода от предыдущих символов
-            std::getline(std::cin, item.name);  // Используем getline для ввода имени товара
+            std::cin >> item.name;
 
             item.weight = getValidDouble("Введите вес товара: ");
             item.buyPrice = getValidDouble("Введите оптовую цену товара: ");
-            item.sellPrice = getValidDouble("Введите цену перепродажи товара: ");
+            item.sellPrice = getValidSellPrice(item.buyPrice);  // Используем новую функцию
             item.availableQty = getValidInt("Введите доступное количество товара: ");
 
             calculator.addItem(item);
@@ -61,16 +74,11 @@ int main() {
         auto selectedItems = calculator.maximizeProfit();
 
         std::cout << "\nВыбранные товары:\n";
-        double totalProfit = 0.0;
         for (const auto& item : selectedItems) {
-            double profit = (item.sellPrice - item.buyPrice) * item.availableQty;
             std::cout << "Товар: " << item.name
                       << ", Количество: " << item.availableQty
-                      << ", Прибыль: " << profit << "\n";
-            totalProfit += profit;
+                      << ", Прибыль: " << (item.sellPrice - item.buyPrice) * item.availableQty << "\n";
         }
-
-        std::cout << "\nОбщая прибыль: " << totalProfit << "\n";
     } catch (const std::exception& e) {
         std::cerr << "Ошибка: " << e.what() << "\n";
     }
