@@ -3,4 +3,6 @@ project(itoq)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(itoq main.cpp pribil.h pribil.cpp)
+add_executable(tests test.cpp pribil.cpp)
+add_executable(main main.cpp pribil.cpp
+        doctest.h)

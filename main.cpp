@@ -47,7 +47,8 @@ int main() {
             Item item;
             std::cout << "\nТовар #" << i + 1 << "\n";
             std::cout << "Введите имя товара: ";
-            std::cin >> item.name;
+            std::cin.ignore(); // Очистка ввода от предыдущих символов
+            std::getline(std::cin, item.name);  // Используем getline для ввода имени товара
 
             item.weight = getValidDouble("Введите вес товара: ");
             item.buyPrice = getValidDouble("Введите оптовую цену товара: ");
@@ -60,15 +61,19 @@ int main() {
         auto selectedItems = calculator.maximizeProfit();
 
         std::cout << "\nВыбранные товары:\n";
+        double totalProfit = 0.0;
         for (const auto& item : selectedItems) {
+            double profit = (item.sellPrice - item.buyPrice) * item.availableQty;
             std::cout << "Товар: " << item.name
                       << ", Количество: " << item.availableQty
-                      << ", Прибыль: " << (item.sellPrice - item.buyPrice) * item.availableQty << "\n";
+                      << ", Прибыль: " << profit << "\n";
+            totalProfit += profit;
         }
+
+        std::cout << "\nОбщая прибыль: " << totalProfit << "\n";
     } catch (const std::exception& e) {
         std::cerr << "Ошибка: " << e.what() << "\n";
     }
 
     return 0;
 }
-

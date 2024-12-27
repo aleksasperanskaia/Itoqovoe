@@ -1,3 +1,4 @@
-/home/stud-09/Documents/218/Itoqovoe/cmake-build-debug/CMakeFiles/itoq.dir
+/home/stud-09/Documents/218/Itoqovoe/cmake-build-debug/CMakeFiles/tests.dir
+/home/stud-09/Documents/218/Itoqovoe/cmake-build-debug/CMakeFiles/main.dir
 /home/stud-09/Documents/218/Itoqovoe/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/stud-09/Documents/218/Itoqovoe/cmake-build-debug/CMakeFiles/rebuild_cache.dir

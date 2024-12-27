@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "itoq"
+			"path" : "main"
 		}
 	],
 	"backtrace" : 1,
@@ -24,7 +24,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -50,11 +50,11 @@
 			"sourceIndexes" : 
 			[
 				0,
-				2
+				1
 			]
 		}
 	],
-	"id" : "itoq::@6890427a1f51a3e7e1df",
+	"id" : "main::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -70,8 +70,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "itoq",
-	"nameOnDisk" : "itoq",
+	"name" : "main",
+	"nameOnDisk" : "main",
 	"paths" : 
 	{
 		"build" : ".",
@@ -84,14 +84,14 @@
 			"sourceIndexes" : 
 			[
 				0,
-				2
+				1
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				1
+				2
 			]
 		}
 	],
@@ -105,14 +105,14 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "pribil.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "pribil.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "doctest.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

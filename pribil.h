@@ -7,10 +7,10 @@
 
 struct Item {
     std::string name;
-    double weight; // Вес единицы товара
-    double buyPrice; // Оптовая цена
-    double sellPrice; // Цена перепродажи
-    int availableQty; // Доступное количество
+    double weight;      // Вес единицы товара
+    double buyPrice;    // Оптовая цена
+    double sellPrice;   // Цена перепродажи
+    int availableQty;   // Доступное количество
 
     // Валидация данных товара
     void validate() const {
@@ -30,9 +30,9 @@ public:
     std::vector<Item> maximizeProfit();
 
 private:
-    double budget; // Доступный бюджет
-    double maxWeight; // Максимальная грузоподъёмность фуры
-    std::vector<Item> items; // Список всех доступных товаров
+    double budget;                 // Доступный бюджет
+    double maxWeight;              // Максимальная грузоподъёмность фуры
+    std::vector<Item> items;       // Список всех доступных товаров
 
     // Вспомогательная функция для проверки бюджета и веса
     void validateInputs() const;
