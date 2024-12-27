@@ -15,10 +15,10 @@ struct Item {
     // Валидация данных товара
     void validate() const {
         if (weight <= 0 || buyPrice <= 0 || sellPrice <= 0 || availableQty <= 0) {
-            throw std::invalid_argument("Данные товара неверны: вес, цены и количество должны быть положительными.");
+            throw std::invalid_argument("Item data is invalid: weight, prices and quantities must be positive");
         }
         if (buyPrice > sellPrice) {
-            throw std::logic_error("Оптовая цена не может быть выше цены перепродажи.");
+            throw std::logic_error("wholesale price cannot be higher than resale price");
         }
     }
 };
