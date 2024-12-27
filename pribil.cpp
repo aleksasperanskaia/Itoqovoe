@@ -5,7 +5,7 @@
 ProfitCalculator::ProfitCalculator(double budget, double maxWeight)
     : budget(budget), maxWeight(maxWeight) {
     if (budget <= 0 || maxWeight <= 0) {
-        throw std::invalid_argument("Бюджет и грузоподъёмность должны быть положительными числами.");
+        throw std::invalid_argument("budget and capacity must be positive numbers");
     }
 }
 
@@ -60,12 +60,12 @@ std::vector<Item> ProfitCalculator::maximizeProfit() {
 
 void ProfitCalculator::validateInputs() const {
     if (items.empty()) {
-        throw std::runtime_error("Список товаров пуст. Добавьте хотя бы один товар.");
+        throw std::runtime_error("product list is empty. add at least one product");
     }
     if (budget <= 0) {
-        throw std::runtime_error("Бюджет должен быть положительным числом.");
+        throw std::runtime_error("budget must be a positive number");
     }
     if (maxWeight <= 0) {
-        throw std::runtime_error("Грузоподъёмность должна быть положительным числом.");
+        throw std::runtime_error("capacity must be a positive number");
     }
 }
